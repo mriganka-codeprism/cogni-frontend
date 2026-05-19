@@ -1,0 +1,76 @@
+stages:
+  - build
+
+variables:
+  REGISTRY: "registry.ird.mu-sigma.com/mutalent/frontend"
+  VERSION: "25.11.01"
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: "/certs"
+  # Configure Git to use CI_JOB_TOKEN for authentication
+  GIT_STRATEGY: clone
+  GIT_DEPTH: 20
+  # Skip LFS smudge during checkout if LFS files aren't needed for build
+  # Set to "0" if LFS files are required
+  GIT_LFS_SKIP_SMUDGE: "1"
+  # Frontend basepath configuration - default to /muCognitron
+  # Can be overridden by setting REACT_APP_PUBLIC_URL as a CI/CD variable
+  REACT_APP_PUBLIC_URL: "/muCognitron"
+  REACT_APP_API_URL: "http://api-gateway-service:8005/muCognitron"
+  REACT_APP_APPLINK_PATH: ""
+  REACT_APP_FER_SOCKET: "ws://fer-service:8001/ws"
+  REACT_APP_FER_URL: "http://fer-service:8001"
+
+# Use Docker-in-Docker service
+.docker_base:
+  image: docker:24
+  services:
+    - docker:24-dind
+  before_script:
+    # Install Git LFS
+    - apk add --no-cache git-lfs curl
+    - git lfs install
+    # Configure Git credentials for LFS
+    - git config --global credential.helper store
+    - echo "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.ird.mu-sigma.com" > ~/.git-credentials
+    - git config --global url."https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.ird.mu-sigma.com/".insteadOf "https://gitlab.ird.mu-sigma.com/"
+    # Pull LFS files if needed (only if GIT_LFS_SKIP_SMUDGE is not set to 1)
+    - |
+      if [ "${GIT_LFS_SKIP_SMUDGE}" != "1" ]; then
+        echo "Pulling Git LFS files..."
+        git lfs pull || echo "Warning: Git LFS pull failed, but continuing build..."
+      else
+        echo "Skipping Git LFS pull (GIT_LFS_SKIP_SMUDGE=1)"
+      fi
+    - echo "Logging into GitLab Container Registry..."
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
+
+# Build frontend job
+build-frontend:
+  stage: build
+  extends: .docker_base
+  script:
+    - echo "========================================="
+    - echo "Building frontend with basepath configuration"
+    - echo "========================================="
+    - |
+      docker build \
+        --build-arg REACT_APP_PUBLIC_URL="${REACT_APP_PUBLIC_URL}" \
+        --build-arg REACT_APP_API_URL="${REACT_APP_API_URL}" \
+        --build-arg REACT_APP_APPLINK_PATH="${REACT_APP_APPLINK_PATH}" \
+        --build-arg REACT_APP_FER_SOCKET="${REACT_APP_FER_SOCKET}" \
+        --build-arg REACT_APP_FER_URL="${REACT_APP_FER_URL}" \
+        -t ${REGISTRY}:${VERSION} .
+    - docker tag ${REGISTRY}:${VERSION} ${REGISTRY}:latest
+    - echo "Pushing frontend..."
+    - docker push ${REGISTRY}:${VERSION}
+    - docker push ${REGISTRY}:latest
+    - echo "Frontend built and pushed successfully!"
+  when: manual
+  allow_failure: false
+  # Basepath is set to /muCognitron by default (defined in variables section)
+  # To override for different environments, set these as CI/CD variables in GitLab:
+  #   - REACT_APP_PUBLIC_URL: "/muCognitron" (default) or "" for root, or "/app/frontend" for custom
+  #   - REACT_APP_API_URL: API gateway URL
+  #   - REACT_APP_FER_SOCKET: WebSocket URL for FER service
+  #   - REACT_APP_FER_URL: HTTP URL for FER service
+

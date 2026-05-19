@@ -1,0 +1,402 @@
+[
+  {
+    "id": "1",
+    "name": "Kavita Pardeshi",
+    "email": "kavitapardeshipbn@gmail.com",
+    "score": 5.8,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "2",
+    "name": "Satish Kumar",
+    "email": "1218satish@gmail.com",
+    "score": 0,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "3",
+    "name": "Pratima Thapa",
+    "email": "pratima4599@gmail.com",
+    "score": 7,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "4",
+    "name": "Leona maria babu",
+    "email": "leonabjds@gmail.com",
+    "score": 5.8,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "5",
+    "name": "Vishnu C",
+    "email": "superVishnu9@gmail.com",
+    "score": 5.5,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "6",
+    "name": "Lakshminarayan Kamat",
+    "email": "laksh.kamat93@gmail.com",
+    "score": 6.3,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "7",
+    "name": "harsh nashine",
+    "email": "harsh@gmail.com",
+    "score": 5.8,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "8",
+    "name": "Manoj Jain",
+    "email": "manoj@gmail.com",
+    "score": 6,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "9",
+    "name": "Manjunatha Shetty",
+    "email": "manjunatha@gmail.com",
+    "score": 7.5,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "10",
+    "name": "Rahul Singh",
+    "email": "rahul.sing@gmail.com",
+    "score": 6.8,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "11",
+    "name": "Priya Verma",
+    "email": "priya.verma@gmail.com",
+    "score": 7.2,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "12",
+    "name": "Aditya Patel",
+    "email": "aditya.patel@gmail.com",
+    "score": 6.5,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "13",
+    "name": "Anjali Gupta",
+    "email": "anjali.gupta@gmail.com",
+    "score": 7.8,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "14",
+    "name": "Deepak Sharma",
+    "email": "deepak.sharma@gmail.com",
+    "score": 6.1,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "15",
+    "name": "Neha Kapoor",
+    "email": "neha.kapoor@gmail.com",
+    "score": 7.4,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "16",
+    "name": "Rohit Kumar",
+    "email": "rohit.kumar@gmail.com",
+    "score": 5.9,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "17",
+    "name": "Sneha Bhat",
+    "email": "sneha.bhat@gmail.com",
+    "score": 6.7,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "18",
+    "name": "Vikram Reddy",
+    "email": "vikram.reddy@gmail.com",
+    "score": 7.1,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "19",
+    "name": "Pooja Desai",
+    "email": "pooja.desai@gmail.com",
+    "score": 6.4,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "20",
+    "name": "Arjun Nair",
+    "email": "arjun.nair@gmail.com",
+    "score": 7.3,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "21",
+    "name": "Divya Iyer",
+    "email": "divya.iyer@gmail.com",
+    "score": 6.6,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "22",
+    "name": "Suresh Menon",
+    "email": "suresh.menon@gmail.com",
+    "score": 5.7,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "23",
+    "name": "Isha Bansal",
+    "email": "isha.bansal@gmail.com",
+    "score": 7.5,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "24",
+    "name": "Karan Singhal",
+    "email": "karan.singhal@gmail.com",
+    "score": 6.3,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "25",
+    "name": "Richa Pandey",
+    "email": "richa.pandey@gmail.com",
+    "score": 7.0,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "26",
+    "name": "Nikhil Saxena",
+    "email": "nikhil.saxena@gmail.com",
+    "score": 6.8,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "27",
+    "name": "Shreya Chopra",
+    "email": "shreya.chopra@gmail.com",
+    "score": 7.2,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "28",
+    "name": "Anand Joshi",
+    "email": "anand.joshi@gmail.com",
+    "score": 6.5,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "29",
+    "name": "Vanshika Mishra",
+    "email": "vanshika.mishra@gmail.com",
+    "score": 7.6,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "30",
+    "name": "Sameer Khan",
+    "email": "sameer.khan@gmail.com",
+    "score": 6.2,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "31",
+    "name": "Akshita Roy",
+    "email": "akshita.roy@gmail.com",
+    "score": 7.4,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "32",
+    "name": "Manish Patel",
+    "email": "manish.patel@gmail.com",
+    "score": 6.0,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "33",
+    "name": "Kavya Singh",
+    "email": "kavya.singh@gmail.com",
+    "score": 7.3,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "34",
+    "name": "Aryan Verma",
+    "email": "aryan.verma@gmail.com",
+    "score": 6.7,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "35",
+    "name": "Sakshi Bhatnagar",
+    "email": "sakshi.bhatnagar@gmail.com",
+    "score": 7.1,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "36",
+    "name": "Varun Chawla",
+    "email": "varun.chawla@gmail.com",
+    "score": 6.4,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "37",
+    "name": "Nidhi Pathak",
+    "email": "nidhi.pathak@gmail.com",
+    "score": 7.5,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "38",
+    "name": "Harsh Sharma",
+    "email": "harsh.sharma@gmail.com",
+    "score": 6.1,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "39",
+    "name": "Zara Khan",
+    "email": "zara.khan@gmail.com",
+    "score": 7.7,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "40",
+    "name": "Yash Tripathi",
+    "email": "yash.tripathi@gmail.com",
+    "score": 6.3,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "41",
+    "name": "Isha Sharma",
+    "email": "isha.sharma@gmail.com",
+    "score": 7.2,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "42",
+    "name": "Xavier D'Souza",
+    "email": "xavier.dsouza@gmail.com",
+    "score": 6.6,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "43",
+    "name": "Wanda Williams",
+    "email": "wanda.williams@gmail.com",
+    "score": 7.0,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "44",
+    "name": "Vikas Mishra",
+    "email": "vikas.mishra@gmail.com",
+    "score": 6.5,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "45",
+    "name": "Uma Devi",
+    "email": "uma.devi@gmail.com",
+    "score": 7.4,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "46",
+    "name": "Tanvi Joshi",
+    "email": "tanvi.joshi@gmail.com",
+    "score": 6.2,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "47",
+    "name": "Shivan Menon",
+    "email": "shivan.menon@gmail.com",
+    "score": 7.3,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "48",
+    "name": "Rena Gupta",
+    "email": "rena.gupta@gmail.com",
+    "score": 6.8,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "49",
+    "name": "Qamar Hussain",
+    "email": "qamar.hussain@gmail.com",
+    "score": 7.1,
+    "totalScore": 10,
+    "status": "Not rated"
+  },
+  {
+    "id": "50",
+    "name": "Priya Sharma",
+    "email": "priya.sharma@gmail.com",
+    "score": 6.9,
+    "totalScore": 10,
+    "status": "Not rated"
+  }
+]

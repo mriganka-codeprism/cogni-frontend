@@ -1,0 +1,122 @@
+trigger:
+  branches:
+    include:
+      - main
+      - master
+      - dev
+      - QA
+      - sandbox
+      - vite-faster-build
+
+variables:
+  # Docker registry details
+  - ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+      - group: master-variables
+  - ${{ elseif eq(variables['Build.SourceBranch'], 'refs/heads/sandbox') }}:
+      - group: sandbox-variables
+  - ${{ elseif eq(variables['Build.SourceBranch'], 'refs/heads/QA') }}:
+      - group: QA-variables
+  - ${{ else }}:
+      - group: dev-variables
+
+stages:
+  - stage: Build
+    displayName: Build React Code
+    jobs:
+      - job: BuildPushJob
+        displayName: Build and Push
+        pool:
+          name: Default
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: Cache@2
+            inputs:
+              key: 'npm | "$(Agent.OS)" | package.json'
+              path: '$(Build.SourcesDirectory)/node_modules'
+              restoreKeys: |
+                npm | "$(Agent.OS)"
+            displayName: 'Cache NPM Dependencies'
+
+          - task: UseNode@1
+            inputs:
+              version: '22.x'
+            displayName: 'Install Node.js'
+
+          - script: |
+              npm install -g npm@11.2.0
+              npm install --force
+            displayName: 'Install Dependencies'
+          
+          - task: SonarQubePrepare@7
+            # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+            inputs:
+              SonarQube: 'sonarqube'
+              scannerMode: 'cli'
+              configMode: 'manual'
+              cliProjectKey: 'CEEP-Platform_ceep-platform-webportal_a9fb340e-96b2-4088-9ebd-fe34ba1f12f7'
+              cliProjectName: 'ceep-platform-webportal'
+              cliSources: '.'
+
+
+          - script: |
+              echo "############## DEBUG #############"
+              echo "Printing Env variables for npm build"
+              printenv | sort -h
+              npm run build
+            displayName: 'Build React App'
+          
+          - task: SonarQubeAnalyze@7
+            # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+            inputs:
+              jdkversion: 'JAVA_HOME_17_X64'
+          - task: SonarQubePublish@7
+            # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+            inputs:
+              pollingTimeoutSec: '300'
+
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: '$(Build.SourcesDirectory)/build'
+              artifact: 'frontend-public'
+              publishLocation: 'pipeline'
+              patterns: |
+                **/*
+                !**/node_modules/**
+                !**/.git/**
+
+  - stage: Push
+    displayName: Build and Push Docker Images
+    jobs:
+      - job: BuildPushJob
+        displayName: Build and Push
+        pool:
+          name: Default
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              buildType: 'current'
+              artifactName: 'frontend-public'
+              targetPath: '$(Build.SourcesDirectory)/build'
+
+          - template: template/docker-build-push.yml
+            parameters:
+              services:
+                - name: frontend
+                  context: .
+
+          - script: |
+              rm -rf $(Build.SourcesDirectory)/node_modules
+              rm -rf $(Build.SourcesDirectory)/.git
+            displayName: 'Clean up node_modules and .git folders'
+            
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.SourcesDirectory)'
+              ArtifactName: 'ceep-frontend-app'
+              publishLocation: 'Container'
+              StoreAsTar: true
+              patterns: |
+                **/*
+                !**/node_modules/**
+                !**/.git/**

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "name": "Pawas Gupta",
+    "date": "01/07/...",
+    "email": "pawasgupta757@gmail.com",
+    "score": 7,
+    "emailStatus": "Legacy",
+    "summary": "Pawas Gupta is an expe...",
+    "cv": "N/A"
+  },
+  {
+    "id": "2",
+    "name": "Kavitha Sharma",
+    "date": "01/07/...",
+    "email": "kavitha.sharma95@gmail.com",
+    "score": 7,
+    "emailStatus": "Not Sent",
+    "summary": "Sharma has over 6 year...",
+    "cv": "N/A"
+  },
+  {
+    "id": "3",
+    "name": "Bhagwat Singh",
+    "date": "01/07/...",
+    "email": "bhagwatpikhwal@gmail.com",
+    "score": 6,
+    "emailStatus": "Not Sent",
+    "summary": "Singh has over 6 years ...",
+    "cv": "N/A"
+  },
+  {
+    "id": "4",
+    "name": "Kavyashree S",
+    "date": "01/07/...",
+    "email": "Kavyashrees345@gmail.com",
+    "score": 6,
+    "emailStatus": "Legacy",
+    "summary": "Kavyashree S has 6 year...",
+    "cv": "N/A"
+  },
+  {
+    "id": "5",
+    "name": "Sreepoorna Thevarat...",
+    "date": "01/07/...",
+    "email": "sreepoornaviswanadhan@gmail.com",
+    "score": 5,
+    "emailStatus": "Legacy",
+    "summary": "Thevarathi has 5 years ...",
+    "cv": "N/A"
+  },
+  {
+    "id": "6",
+    "name": "CHAITALI GHADI",
+    "date": "01/07/...",
+    "email": "chaitalisghadi@gmail.com",
+    "score": 5,
+    "emailStatus": "Not Sent",
+    "summary": "Ghadi has over 5 years ...",
+    "cv": "N/A"
+  },
+  {
+    "id": "7",
+    "name": "Sandhya Viswanathan",
+    "date": "01/07/...",
+    "email": "sandhya.vis18@gmail.com",
+    "score": 5,
+    "emailStatus": "Not Sent",
+    "summary": "Viswanathan has 4+ ye...",
+    "cv": "N/A"
+  },
+  {
+    "id": "8",
+    "name": "Harshitha M",
+    "date": "01/07/...",
+    "email": "harshitaatreya@gmail.com",
+    "score": 7,
+    "emailStatus": "Not Sent",
+    "summary": "Harshitha M has 9 years...",
+    "cv": "N/A"
+  }
+]

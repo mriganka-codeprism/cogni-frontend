@@ -1,0 +1,22 @@
+.docker-build-template:
+  stage: docker
+  image: docker:latest
+  services:
+    - docker:dind
+  variables:
+    DOCKER_TLS_CERTDIR: ""
+  script:
+    - echo "Logging into registry..."
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_JOB_TOKEN" "$CI_REGISTRY"
+
+    - |
+      SERVICES="frontend"
+      
+      for service in $SERVICES; do
+        echo "Building and pushing image for $service..."
+        IMAGE_TAG="${CI_REGISTRY_IMAGE}/${service}:latest"
+        BUILD_ID_TAG="${CI_REGISTRY_IMAGE}/${service}:${CI_PIPELINE_ID}"
+        docker build -t $IMAGE_TAG -t $BUILD_ID_TAG -f Dockerfile .
+        docker push $IMAGE_TAG
+        docker push $BUILD_ID_TAG
+      done
